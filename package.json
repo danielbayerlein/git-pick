@@ -1,0 +1,23 @@
+{
+  "name": "@danielbayerlein/git-pick",
+  "version": "1.0.0",
+  "description": "Automatically git-cherry-pick for specific branches",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielbayerlein/git-pick.git"
+  },
+  "keywords": [
+    "Git",
+    "git-cherry-pick"
+  ],
+  "author": "Daniel Bayerlein",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielbayerlein/git-pick/issues"
+  },
+  "homepage": "https://github.com/danielbayerlein/git-pick#readme"
+}
