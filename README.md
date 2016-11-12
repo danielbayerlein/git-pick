@@ -1,8 +1,23 @@
 # git-pick
 
+`git cherry-pick <commit>` to multiple branches.
+With `git-pick` you can cherry-pick a commit to multiple branches.
+
 ## Installation
 
+```bash
+# npm
+$ npm install @danielbayerlein/git-pick --global
+
+# Yarn
+$ yarn global add @danielbayerlein/git-pick --global
+```
+
 ## Usage
+
+```bash
+$ git-pick <commit> <branches...>
+```
 
 ## Contributing
 
