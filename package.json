@@ -1,8 +1,11 @@
 {
   "name": "@danielbayerlein/git-pick",
   "version": "1.0.0",
-  "description": "Automatically git-cherry-pick for specific branches",
+  "description": "git cherry-pick to multiple branches",
   "main": "lib/index.js",
+  "bin": {
+    "git-pick": "bin/cli.js"
+  },
   "scripts": {
     "lint": "eslint --format=node_modules/eslint-formatter-pretty .",
     "test": "npm run lint",
@@ -14,7 +17,8 @@
   },
   "keywords": [
     "Git",
-    "git-cherry-pick"
+    "git-cherry-pick",
+    "cherry-pick"
   ],
   "author": "Daniel Bayerlein",
   "license": "MIT",
@@ -23,10 +27,15 @@
   },
   "homepage": "https://github.com/danielbayerlein/git-pick#readme",
   "devDependencies": {
-    "eslint": "^3.9.1",
+    "eslint": "^3.10.0",
     "eslint-config-airbnb-base": "^10.0.1",
     "eslint-formatter-pretty": "^1.1.0",
     "eslint-plugin-import": "^2.2.0",
     "husky": "^0.11.9"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "log-symbols": "^1.0.2",
+    "shelljs": "^0.7.5"
   }
 }
