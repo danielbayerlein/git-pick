@@ -7,8 +7,9 @@
     "git-pick": "bin/cli.js"
   },
   "scripts": {
+    "coverage": "jest --coverage",
     "lint": "eslint --format=node_modules/eslint-formatter-pretty .",
-    "test": "npm run lint",
+    "test": "npm run lint && jest",
     "prepush": "npm test"
   },
   "repository": {
@@ -31,11 +32,15 @@
     "eslint-config-airbnb-base": "^10.0.1",
     "eslint-formatter-pretty": "^1.1.0",
     "eslint-plugin-import": "^2.2.0",
-    "husky": "^0.11.9"
+    "husky": "^0.11.9",
+    "jest": "^17.0.0"
   },
   "dependencies": {
     "commander": "^2.9.0",
     "log-symbols": "^1.0.2",
     "shelljs": "^0.7.5"
+  },
+  "jest": {
+    "bail": true
   }
 }
