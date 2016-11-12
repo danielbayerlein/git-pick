@@ -41,6 +41,11 @@
     "shelljs": "^0.7.5"
   },
   "jest": {
-    "bail": true
+    "bail": true,
+    "collectCoverage": "true",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "**/{lib,bin}/*.js"
+    ]
   }
 }
