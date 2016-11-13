@@ -2,4 +2,4 @@
 /.travis.yml
 /.eslintignore
 /.npmignore
-/__tests__/
+/__tests__/*
