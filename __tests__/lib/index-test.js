@@ -77,6 +77,7 @@ describe('index.js', () => {
   describe('git not available', () => {
     beforeEach(() => {
       git.isAvailable = jest.fn(() => false);
+
       shell.stop = jest.fn();
 
       gitPick('1234abc', ['branch1']);
@@ -99,6 +100,7 @@ describe('index.js', () => {
     beforeEach(() => {
       git.isAvailable = jest.fn(() => true);
       git.isCommitAvailable = jest.fn(() => false);
+
       shell.stop = jest.fn();
 
       gitPick('1234abc', ['branch1']);
@@ -122,6 +124,7 @@ describe('index.js', () => {
       git.isAvailable = jest.fn(() => true);
       git.isCommitAvailable = jest.fn(() => true);
       git.isWorkingDirectoryClean = jest.fn(() => false);
+
       shell.stop = jest.fn();
 
       gitPick('1234abc', ['branch1']);
@@ -137,6 +140,35 @@ describe('index.js', () => {
 
     it('to be called shell.stop with "Working directory is not clean"', () => {
       expect(shell.stop).toBeCalledWith('Working directory is not clean');
+    });
+  });
+
+  describe('Commit is not mergeable', () => {
+    beforeEach(() => {
+      git.isAvailable = jest.fn(() => true);
+      git.isCommitAvailable = jest.fn(() => true);
+      git.isWorkingDirectoryClean = jest.fn(() => true);
+      git.getRootDirectoryPath = jest.fn(() => '/Users/Daniel/Projects/git-pick');
+      git.getCurrentBranch = jest.fn(() => 'master');
+      git.checkout = jest.fn();
+      git.isCommitMergeable = jest.fn(() => false);
+
+      shell.cd = jest.fn();
+      shell.fail = jest.fn();
+
+      gitPick('1234abc', ['branch1']);
+    });
+
+    it('to be called git.isCommitMergeable', () => {
+      expect(git.isCommitMergeable).toHaveBeenCalledTimes(1);
+    });
+
+    it('to be called shell.fail', () => {
+      expect(shell.fail).toHaveBeenCalledTimes(1);
+    });
+
+    it('to be called shell.fail with "[branch1] Commit is not mergeable"', () => {
+      expect(shell.fail).toBeCalledWith('[branch1] Commit is not mergeable');
     });
   });
 });
