@@ -16,8 +16,6 @@ describe('index.js', () => {
       git.push = jest.fn();
 
       shell.cd = jest.fn();
-      shell.fail = jest.fn();
-      shell.stop = jest.fn();
       shell.succeed = jest.fn();
 
       gitPick('1234abc', ['branch1', 'branch2', 'branch3']);
@@ -73,6 +71,27 @@ describe('index.js', () => {
 
     it('to be called shell', () => {
       expect(shell.succeed).toHaveBeenCalledTimes(3);
+    });
+  });
+
+  describe('git not available', () => {
+    beforeEach(() => {
+      git.isAvailable = jest.fn(() => false);
+      shell.stop = jest.fn();
+
+      gitPick('1234abc', ['branch1']);
+    });
+
+    it('to be called git.isAvailable', () => {
+      expect(git.isAvailable).toHaveBeenCalledTimes(1);
+    });
+
+    it('to be called shell.stop', () => {
+      expect(shell.stop).toHaveBeenCalledTimes(1);
+    });
+
+    it('to be called git.cherryPick with "git-pick requires git"', () => {
+      expect(shell.stop).toBeCalledWith('git-pick requires git');
     });
   });
 });
