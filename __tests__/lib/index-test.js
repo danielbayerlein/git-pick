@@ -90,7 +90,7 @@ describe('index.js', () => {
       expect(shell.stop).toHaveBeenCalledTimes(1);
     });
 
-    it('to be called git.cherryPick with "git-pick requires git"', () => {
+    it('to be called shell.stop with "git-pick requires git"', () => {
       expect(shell.stop).toBeCalledWith('git-pick requires git');
     });
   });
