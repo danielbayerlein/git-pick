@@ -2,6 +2,10 @@ const git = require('../../lib/git');
 const shell = require('../../lib/shell');
 
 describe('git.js', () => {
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
+
   describe('function checkout()', () => {
     beforeEach(() => {
       shell.exec = jest.fn();

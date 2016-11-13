@@ -8,6 +8,10 @@ jest.mock('log-symbols', () => ({
 }));
 
 describe('shell.js', () => {
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
+
   describe('function cd()', () => {
     it('to be called shelljs.cd with "Projects/git-pick"', () => {
       shelljs.cd = jest.fn();

@@ -3,20 +3,27 @@ const git = require('../../lib/git');
 const shell = require('../../lib/shell');
 
 describe('index.js', () => {
+  beforeEach(() => {
+    jest.resetAllMocks();
+
+    git.getRootDirectoryPath = jest.fn(() => '/Users/Daniel/Projects/git-pick');
+    git.getCurrentBranch = jest.fn(() => 'master');
+    git.cherryPick = jest.fn();
+    git.checkout = jest.fn();
+    git.push = jest.fn();
+
+    shell.fail = jest.fn();
+    shell.stop = jest.fn();
+    shell.cd = jest.fn();
+    shell.succeed = jest.fn();
+  });
+
   describe('function exec()', () => {
     beforeEach(() => {
       git.isAvailable = jest.fn(() => true);
       git.isCommitAvailable = jest.fn(() => true);
       git.isWorkingDirectoryClean = jest.fn(() => true);
-      git.getRootDirectoryPath = jest.fn(() => '/Users/Daniel/Projects/git-pick');
-      git.getCurrentBranch = jest.fn(() => 'master');
-      git.checkout = jest.fn();
       git.isCommitMergeable = jest.fn(() => true);
-      git.cherryPick = jest.fn();
-      git.push = jest.fn();
-
-      shell.cd = jest.fn();
-      shell.succeed = jest.fn();
 
       gitPick('1234abc', ['branch1', 'branch2', 'branch3']);
     });
@@ -77,10 +84,10 @@ describe('index.js', () => {
   describe('git not available', () => {
     beforeEach(() => {
       git.isAvailable = jest.fn(() => false);
+      git.isCommitAvailable = jest.fn(() => true);
+      git.isWorkingDirectoryClean = jest.fn(() => true);
 
-      shell.stop = jest.fn();
-
-      gitPick('1234abc', ['branch1']);
+      gitPick('1234abc', []);
     });
 
     it('to be called git.isAvailable', () => {
@@ -100,10 +107,9 @@ describe('index.js', () => {
     beforeEach(() => {
       git.isAvailable = jest.fn(() => true);
       git.isCommitAvailable = jest.fn(() => false);
+      git.isWorkingDirectoryClean = jest.fn(() => true);
 
-      shell.stop = jest.fn();
-
-      gitPick('1234abc', ['branch1']);
+      gitPick('1234abc', []);
     });
 
     it('to be called git.isCommitAvailable', () => {
@@ -125,9 +131,7 @@ describe('index.js', () => {
       git.isCommitAvailable = jest.fn(() => true);
       git.isWorkingDirectoryClean = jest.fn(() => false);
 
-      shell.stop = jest.fn();
-
-      gitPick('1234abc', ['branch1']);
+      gitPick('1234abc', []);
     });
 
     it('to be called git.isWorkingDirectoryClean', () => {
@@ -148,13 +152,7 @@ describe('index.js', () => {
       git.isAvailable = jest.fn(() => true);
       git.isCommitAvailable = jest.fn(() => true);
       git.isWorkingDirectoryClean = jest.fn(() => true);
-      git.getRootDirectoryPath = jest.fn(() => '/Users/Daniel/Projects/git-pick');
-      git.getCurrentBranch = jest.fn(() => 'master');
-      git.checkout = jest.fn();
       git.isCommitMergeable = jest.fn(() => false);
-
-      shell.cd = jest.fn();
-      shell.fail = jest.fn();
 
       gitPick('1234abc', ['branch1']);
     });
