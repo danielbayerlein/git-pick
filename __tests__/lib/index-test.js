@@ -116,4 +116,27 @@ describe('index.js', () => {
       expect(shell.stop).toBeCalledWith('Commit does not exist');
     });
   });
+
+  describe('Working directory is not clean', () => {
+    beforeEach(() => {
+      git.isAvailable = jest.fn(() => true);
+      git.isCommitAvailable = jest.fn(() => true);
+      git.isWorkingDirectoryClean = jest.fn(() => false);
+      shell.stop = jest.fn();
+
+      gitPick('1234abc', ['branch1']);
+    });
+
+    it('to be called git.isWorkingDirectoryClean', () => {
+      expect(git.isWorkingDirectoryClean).toHaveBeenCalledTimes(1);
+    });
+
+    it('to be called shell.stop', () => {
+      expect(shell.stop).toHaveBeenCalledTimes(1);
+    });
+
+    it('to be called shell.stop with "Working directory is not clean"', () => {
+      expect(shell.stop).toBeCalledWith('Working directory is not clean');
+    });
+  });
 });
