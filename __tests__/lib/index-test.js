@@ -94,4 +94,26 @@ describe('index.js', () => {
       expect(shell.stop).toBeCalledWith('git-pick requires git');
     });
   });
+
+  describe('Commit does not exist', () => {
+    beforeEach(() => {
+      git.isAvailable = jest.fn(() => true);
+      git.isCommitAvailable = jest.fn(() => false);
+      shell.stop = jest.fn();
+
+      gitPick('1234abc', ['branch1']);
+    });
+
+    it('to be called git.isCommitAvailable', () => {
+      expect(git.isCommitAvailable).toHaveBeenCalledTimes(1);
+    });
+
+    it('to be called shell.stop', () => {
+      expect(shell.stop).toHaveBeenCalledTimes(1);
+    });
+
+    it('to be called shell.stop with "Commit does not exist"', () => {
+      expect(shell.stop).toBeCalledWith('Commit does not exist');
+    });
+  });
 });
