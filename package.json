@@ -41,7 +41,8 @@
   "dependencies": {
     "commander": "^2.9.0",
     "log-symbols": "^1.0.2",
-    "shelljs": "^0.7.5"
+    "shelljs": "^0.7.5",
+    "update-notifier": "^1.0.2"
   },
   "jest": {
     "bail": true,

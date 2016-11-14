@@ -1,5 +1,6 @@
 jest.mock('../../lib');
 jest.mock('../../package.json', () => ({
+  name: 'git-pick',
   version: '1.0.0',
 }));
 
