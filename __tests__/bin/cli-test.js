@@ -1,6 +1,7 @@
 jest.mock('../../lib');
 jest.mock('../../package.json', () => ({
   version: '1.0.0',
+  name: 'git-pick',
 }));
 
 const program = require('commander');
