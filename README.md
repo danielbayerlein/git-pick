@@ -1,5 +1,7 @@
 # git-pick
 
+[![Build Status](https://travis-ci.org/danielbayerlein/git-pick.svg?branch=master)](https://travis-ci.org/danielbayerlein/git-pick)
+
 `git cherry-pick <commit>` to multiple branches.
 With `git-pick` you can cherry-pick a commit to multiple branches.
 
