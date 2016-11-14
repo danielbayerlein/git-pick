@@ -10,6 +10,7 @@ describe('cli.js', () => {
   beforeEach(() => {
     program.version = jest.fn().mockReturnThis();
     program.arguments = jest.fn().mockReturnThis();
+    program.command = jest.fn().mockReturnThis();
     program.action = jest.fn().mockImplementation(function action(cb) {
       cb('1234abc', ['branch1', 'branch2']);
       return this;
