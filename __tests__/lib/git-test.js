@@ -31,7 +31,7 @@ describe('git.js', () => {
 
   describe('function getCurrentBranch()', () => {
     beforeEach(() => {
-      shell.exec = jest.fn();
+      shell.exec = jest.fn(() => ({ stdout: 'master' }));
     });
 
     it('to be called shell.exec with "git rev-parse --abbrev-ref HEAD"', () => {
@@ -40,14 +40,13 @@ describe('git.js', () => {
     });
 
     it('returns current branch name', () => {
-      shell.exec.mockReturnValue('master');
       expect(git.getCurrentBranch()).toBe('master');
     });
   });
 
   describe('function getRootDirectoryPath()', () => {
     beforeEach(() => {
-      shell.exec = jest.fn();
+      shell.exec = jest.fn(() => ({ stdout: '/Users/Daniel/Projects/git-pick' }));
     });
 
     it('to be called shell.exec with "git rev-parse --show-toplevel"', () => {
@@ -56,7 +55,6 @@ describe('git.js', () => {
     });
 
     it('returns root directory path of the repository', () => {
-      shell.exec.mockReturnValue('/Users/Daniel/Projects/git-pick');
       expect(git.getRootDirectoryPath()).toBe('/Users/Daniel/Projects/git-pick');
     });
   });
@@ -83,64 +81,55 @@ describe('git.js', () => {
   });
 
   describe('function isCommitAvailable()', () => {
-    beforeEach(() => {
-      shell.exec = jest.fn();
-    });
-
     it('to be called shell.exec with "git cat-file -t abc1234"', () => {
+      shell.exec = jest.fn(() => ({ stdout: jest.fn() }));
       git.isCommitAvailable('abc1234');
       expect(shell.exec).toBeCalledWith('git cat-file -t abc1234');
     });
 
     it('returns true if commit is available', () => {
-      shell.exec.mockReturnValue('commit');
+      shell.exec = jest.fn(() => ({ stdout: 'commit' }));
       expect(git.isCommitAvailable('abc1234')).toBeTruthy();
     });
 
     it('returns false if commit is not available', () => {
-      shell.exec.mockReturnValue('');
+      shell.exec = jest.fn(() => ({ stdout: '' }));
       expect(git.isCommitAvailable('abc1234')).toBeFalsy();
     });
   });
 
   describe('function isCommitMergeable()', () => {
-    beforeEach(() => {
-      shell.exec = jest.fn();
-    });
-
     it('to be called shell.exec with "git format-patch -1 abc1234 --stdout | git apply --check -"', () => {
+      shell.exec = jest.fn(() => ({ stderr: jest.fn() }));
       git.isCommitMergeable('abc1234');
       expect(shell.exec).toBeCalledWith('git format-patch -1 abc1234 --stdout | git apply --check -');
     });
 
     it('returns true if commit is mergeable', () => {
-      shell.exec.mockReturnValue('');
+      shell.exec = jest.fn(() => ({ stderr: '' }));
       expect(git.isCommitMergeable('abc1234')).toBeTruthy();
     });
 
     it('returns false if commit is not mergeable', () => {
-      shell.exec.mockReturnValue('fatal: unrecognized input');
+      shell.exec = jest.fn(() => ({ stderr: 'fatal: unrecognized input' }));
       expect(git.isCommitMergeable('abc1234')).toBeFalsy();
     });
   });
 
   describe('function isWorkingDirectoryClean()', () => {
-    beforeEach(() => {
-      shell.exec = jest.fn();
-    });
-
     it('to be called shell.exec with "git status --porcelain"', () => {
+      shell.exec = jest.fn(() => ({ stdout: jest.fn() }));
       git.isWorkingDirectoryClean();
       expect(shell.exec).toBeCalledWith('git status --porcelain');
     });
 
     it('returns true if working directory is clean', () => {
-      shell.exec.mockReturnValue('');
+      shell.exec = jest.fn(() => ({ stdout: '' }));
       expect(git.isWorkingDirectoryClean()).toBeTruthy();
     });
 
     it('returns false if working directory is not clean', () => {
-      shell.exec.mockReturnValue('M package.json');
+      shell.exec = jest.fn(() => ({ stdout: 'M package.json' }));
       expect(git.isWorkingDirectoryClean()).toBeFalsy();
     });
   });

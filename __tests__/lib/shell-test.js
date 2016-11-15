@@ -30,7 +30,10 @@ describe('shell.js', () => {
 
   describe('function exec()', () => {
     beforeEach(() => {
-      shelljs.exec = jest.fn(() => ({ stdout: 'https://git-scm.com/documentation' }));
+      shelljs.exec = jest.fn(() => ({
+        stdout: 'https://git-scm.com/documentation',
+        stderr: '',
+      }));
     });
 
     it('to be called shelljs.exec with "git --help"', () => {
@@ -39,7 +42,7 @@ describe('shell.js', () => {
     });
 
     it('returns result of given command', () => {
-      expect(shell.exec('git --help')).toBe('https://git-scm.com/documentation');
+      expect(shell.exec('git --help').stdout).toBe('https://git-scm.com/documentation');
     });
   });
 
