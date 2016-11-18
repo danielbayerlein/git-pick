@@ -1,6 +1,6 @@
 {
   "name": "@danielbayerlein/git-pick",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "git cherry-pick to multiple branches",
   "main": "lib/index.js",
   "bin": {
