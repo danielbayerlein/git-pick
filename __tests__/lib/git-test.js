@@ -99,10 +99,10 @@ describe('git.js', () => {
   });
 
   describe('function isCommitMergeable()', () => {
-    it('to be called shell.exec with "git format-patch -1 abc1234 --stdout | git apply --check --whitespace=nowarn -"', () => {
+    it('to be called shell.exec with "git format-patch -1 abc1234 --stdout | git apply --check --whitespace=nowarn --ignore-whitespace -"', () => {
       shell.exec = jest.fn(() => ({ stderr: jest.fn() }));
       git.isCommitMergeable('abc1234');
-      expect(shell.exec).toBeCalledWith('git format-patch -1 abc1234 --stdout | git apply --check --whitespace=nowarn -');
+      expect(shell.exec).toBeCalledWith('git format-patch -1 abc1234 --stdout | git apply --check --whitespace=nowarn --ignore-whitespace -');
     });
 
     it('returns true if commit is mergeable', () => {
