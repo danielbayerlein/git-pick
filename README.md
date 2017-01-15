@@ -2,7 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/%40danielbayerlein%2Fgit-pick.svg)](https://badge.fury.io/js/%40danielbayerlein%2Fgit-pick)
 [![Build Status](https://travis-ci.org/danielbayerlein/git-pick.svg?branch=master)](https://travis-ci.org/danielbayerlein/git-pick)
-[![Coverage Status](https://coveralls.io/repos/github/danielbayerlein/git-pick/badge.svg?branch=master)](https://coveralls.io/github/danielbayerlein/git-pick?branch=master)
+[![Coverage Status](https://codecov.io/gh/danielbayerlein/git-pick/branch/master/graph/badge.svg)](https://codecov.io/gh/danielbayerlein/git-pick)
+
 
 `git cherry-pick <commit>` to multiple branches.
 With `git-pick` you can cherry-pick a commit to multiple branches.
