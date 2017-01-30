@@ -12,16 +12,16 @@ With `git-pick` you can cherry-pick a commit to multiple branches.
 
 ```bash
 # npm
-$ npm install @danielbayerlein/git-pick --global
+npm install @danielbayerlein/git-pick --global
 
 # Yarn
-$ yarn global add @danielbayerlein/git-pick
+yarn global add @danielbayerlein/git-pick
 ```
 
 ## Usage
 
 ```bash
-$ git-pick <commit> <branches...>
+git-pick <commit> <branches...>
 ```
 
 ## Contributing
