@@ -7,7 +7,6 @@
     "git-pick": "bin/cli.js"
   },
   "scripts": {
-    "coverage": "jest --coverage",
     "lint": "eslint --format=node_modules/eslint-formatter-pretty .",
     "test": "npm run lint && jest",
     "prepush": "npm test"
@@ -43,11 +42,8 @@
   },
   "jest": {
     "bail": true,
-    "collectCoverage": "true",
-    "coverageDirectory": "coverage",
-    "collectCoverageFrom": [
-      "**/{lib,bin}/*.js"
-    ]
+    "collectCoverage": true,
+    "collectCoverageFrom": ["**/{lib,bin}/*.js"]
   },
   "publishConfig": {
     "access": "public"
