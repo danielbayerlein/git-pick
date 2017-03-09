@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/danielbayerlein/git-pick#readme",
   "devDependencies": {
-    "eslint": "^3.17.0",
+    "eslint": "^3.17.1",
     "eslint-config-airbnb-base": "^11.1.1",
     "eslint-formatter-pretty": "^1.1.0",
     "eslint-plugin-import": "^2.2.0",
@@ -37,7 +37,7 @@
   "dependencies": {
     "commander": "^2.9.0",
     "log-symbols": "^1.0.2",
-    "shelljs": "^0.7.6",
+    "shelljs": "^0.7.7",
     "update-notifier": "^2.1.0"
   },
   "jest": {
