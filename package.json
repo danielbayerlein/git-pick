@@ -1,17 +1,15 @@
 {
   "name": "@danielbayerlein/git-pick",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "git cherry-pick to multiple branches",
   "main": "lib/index.js",
   "bin": {
     "git-pick": "bin/cli.js"
   },
   "scripts": {
-    "coverage": "jest --coverage",
     "lint": "eslint --format=node_modules/eslint-formatter-pretty .",
     "test": "npm run lint && jest",
-    "prepush": "npm test",
-    "postpublish": "greenkeeper-postpublish"
+    "prepush": "npm test"
   },
   "repository": {
     "type": "git",
@@ -29,27 +27,25 @@
   },
   "homepage": "https://github.com/danielbayerlein/git-pick#readme",
   "devDependencies": {
-    "coveralls": "^2.11.15",
-    "eslint": "^3.10.0",
-    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
     "eslint-formatter-pretty": "^1.1.0",
     "eslint-plugin-import": "^2.2.0",
-    "greenkeeper-postpublish": "^1.0.1",
-    "husky": "^0.11.9",
-    "jest": "^17.0.0"
+    "husky": "^0.13.3",
+    "jest": "^19.0.1"
   },
   "dependencies": {
     "commander": "^2.9.0",
     "log-symbols": "^1.0.2",
-    "shelljs": "^0.7.5",
-    "update-notifier": "^1.0.2"
+    "shelljs": "^0.7.7",
+    "update-notifier": "^2.1.0"
   },
   "jest": {
     "bail": true,
-    "collectCoverage": "true",
-    "coverageDirectory": "coverage",
-    "collectCoverageFrom": [
-      "**/{lib,bin}/*.js"
-    ]
+    "collectCoverage": true,
+    "collectCoverageFrom": ["**/{lib,bin}/*.js"]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -2,7 +2,8 @@ language: node_js
 node_js:
   - stable
 cache:
+  yarn: true
   directories:
     - node_modules
 after_success:
-  - './node_modules/.bin/jest && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls'
+  - bash <(curl -s https://codecov.io/bash)

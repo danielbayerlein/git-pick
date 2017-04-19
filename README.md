@@ -2,7 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/%40danielbayerlein%2Fgit-pick.svg)](https://badge.fury.io/js/%40danielbayerlein%2Fgit-pick)
 [![Build Status](https://travis-ci.org/danielbayerlein/git-pick.svg?branch=master)](https://travis-ci.org/danielbayerlein/git-pick)
-[![Coverage Status](https://coveralls.io/repos/github/danielbayerlein/git-pick/badge.svg?branch=master)](https://coveralls.io/github/danielbayerlein/git-pick?branch=master)
+[![Coverage Status](https://codecov.io/gh/danielbayerlein/git-pick/branch/master/graph/badge.svg)](https://codecov.io/gh/danielbayerlein/git-pick)
+
 
 `git cherry-pick <commit>` to multiple branches.
 With `git-pick` you can cherry-pick a commit to multiple branches.
@@ -11,16 +12,16 @@ With `git-pick` you can cherry-pick a commit to multiple branches.
 
 ```bash
 # npm
-$ npm install @danielbayerlein/git-pick --global
+npm install @danielbayerlein/git-pick --global
 
 # Yarn
-$ yarn global add @danielbayerlein/git-pick --global
+yarn global add @danielbayerlein/git-pick
 ```
 
 ## Usage
 
 ```bash
-$ git-pick <commit> <branches...>
+git-pick <commit> <branches...>
 ```
 
 ## Contributing
@@ -33,4 +34,4 @@ $ git-pick <commit> <branches...>
 
 ## Copyright
 
-Copyright (c) 2016 Daniel Bayerlein. See [LICENSE](./LICENSE.md) for details.
+Copyright (c) 2016-2017 Daniel Bayerlein. See [LICENSE](./LICENSE.md) for details.

@@ -5,6 +5,7 @@ jest.mock('../../package.json', () => ({
 }));
 
 const program = require('commander');
+const updateNotifier = require('update-notifier');
 const gitPick = require('../../lib');
 
 describe('cli.js', () => {
@@ -18,6 +19,8 @@ describe('cli.js', () => {
     program.parse = jest.fn();
     program.args = jest.fn();
     program.help = jest.fn();
+
+    updateNotifier.notify = jest.fn();
 
     require('../../bin/cli'); // eslint-disable-line global-require
   });
