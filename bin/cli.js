@@ -9,10 +9,12 @@ updateNotifier({ pkg }).notify({ defer: false });
 
 program
   .version(pkg.version)
+  .option('-b, --new-branch', 'creates a new feature branch for each given branch')
+  .option('-p, --pull', 'fetches the changes from the remote branch, before cherry-pick the commit')
   .arguments('<commit> <branches...>')
-  .action((commit, branches) => {
+  .action((commit, branches, options) => {
     // Execute git-pick with the given commmit and branches
-    gitPick(commit, branches);
+    gitPick(commit, branches, options);
   })
   .parse(process.argv);
 

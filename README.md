@@ -21,7 +21,13 @@ yarn global add @danielbayerlein/git-pick
 ## Usage
 
 ```bash
-git-pick <commit> <branches...>
+git-pick [options] <commit> <branches...>
+```
+
+## Options
+```
+-b, --new-branch creates a new feature branch for each given branch
+-p, --pull       fetches the changes from the remote branch, before cherry-pick the commit
 ```
 
 ## Contributing
