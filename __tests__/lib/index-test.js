@@ -86,9 +86,9 @@ describe('index.js', () => {
 
   describe('git not available', () => {
     beforeEach(() => {
-      git.isAvailable = jest.fn(() => false);
-      git.isCommitAvailable = jest.fn(() => true);
-      git.isWorkingDirectoryClean = jest.fn(() => true);
+      git.isAvailable.mockImplementation(() => false);
+      git.isCommitAvailable.mockImplementation(() => true);
+      git.isWorkingDirectoryClean.mockImplementation(() => true);
 
       gitPick('1234abc', []);
     });
@@ -108,9 +108,9 @@ describe('index.js', () => {
 
   describe('Commit does not exist', () => {
     beforeEach(() => {
-      git.isAvailable = jest.fn(() => true);
-      git.isCommitAvailable = jest.fn(() => false);
-      git.isWorkingDirectoryClean = jest.fn(() => true);
+      git.isAvailable.mockImplementation(() => true);
+      git.isCommitAvailable.mockImplementation(() => false);
+      git.isWorkingDirectoryClean.mockImplementation(() => true);
 
       gitPick('1234abc', [], {});
     });
@@ -130,9 +130,9 @@ describe('index.js', () => {
 
   describe('Working directory is not clean', () => {
     beforeEach(() => {
-      git.isAvailable = jest.fn(() => true);
-      git.isCommitAvailable = jest.fn(() => true);
-      git.isWorkingDirectoryClean = jest.fn(() => false);
+      git.isAvailable.mockImplementation(() => true);
+      git.isCommitAvailable.mockImplementation(() => true);
+      git.isWorkingDirectoryClean.mockImplementation(() => false);
 
       gitPick('1234abc', [], {});
     });
@@ -152,10 +152,10 @@ describe('index.js', () => {
 
   describe('Commit is not mergeable', () => {
     beforeEach(() => {
-      git.isAvailable = jest.fn(() => true);
-      git.isCommitAvailable = jest.fn(() => true);
-      git.isWorkingDirectoryClean = jest.fn(() => true);
-      git.isCommitMergeable = jest.fn(() => false);
+      git.isAvailable.mockImplementation(() => true);
+      git.isCommitAvailable.mockImplementation(() => true);
+      git.isWorkingDirectoryClean.mockImplementation(() => true);
+      git.isCommitMergeable.mockImplementation(() => false);
 
       gitPick('1234abc', ['branch1'], {});
     });
