@@ -47,8 +47,8 @@ describe('cli.js', () => {
 
   test('calls program.option with "-b" and "-p"', () => {
     cli();
-    expect(program.option).toBeCalledWith('-b, --new-branch', 'creates a new feature branch for each given branch');
-    expect(program.option).toBeCalledWith('-p, --pull', 'fetches the changes from the remote branch, before cherry-pick the commit');
+    expect(program.option).toBeCalledWith('-b, --new-branch', 'Creates a new feature branch for each given branch');
+    expect(program.option).toBeCalledWith('-p, --pull', 'Fetches the changes from the remote branch, before cherry-pick the commit');
   });
 
   test('calls gitPick with "\'1234abc\', [\'branch1\', \'branch2\'], { newBranch: true }"', () => {

@@ -4,7 +4,6 @@
 [![Build Status](https://travis-ci.org/danielbayerlein/git-pick.svg?branch=master)](https://travis-ci.org/danielbayerlein/git-pick)
 [![Coverage Status](https://codecov.io/gh/danielbayerlein/git-pick/branch/master/graph/badge.svg)](https://codecov.io/gh/danielbayerlein/git-pick)
 
-
 `git cherry-pick <commit>` to multiple branches.
 With `git-pick` you can cherry-pick a commit to multiple branches.
 
@@ -24,11 +23,11 @@ yarn global add @danielbayerlein/git-pick
 git-pick [options] <commit> <branches...>
 ```
 
-## Options
+### Options
 
 ```
--b, --new-branch creates a new feature branch for each given branch
--p, --pull       fetches the changes from the remote branch, before cherry-pick the commit
+-b, --new-branch Creates a new feature branch for each given branch
+-p, --pull       Fetches the changes from the remote branch, before cherry-pick the commit
 ```
 
 ## Contributing
