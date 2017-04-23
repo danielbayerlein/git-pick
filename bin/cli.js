@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-const program = require('commander');
-const updateNotifier = require('update-notifier');
-const gitPick = require('../lib');
-const pkg = require('../package.json');
+const program = require('commander')
+const updateNotifier = require('update-notifier')
+const gitPick = require('../lib')
+const pkg = require('../package.json')
 
 // Notify on new version
-updateNotifier({ pkg }).notify({ defer: false });
+updateNotifier({ pkg }).notify({ defer: false })
 
 program
   .version(pkg.version)
@@ -14,10 +14,10 @@ program
   .arguments('<commit> <branches...>')
   .action((commit, branches, options) => {
     // Execute git-pick with the given commmit and branches
-    gitPick(commit, branches, options);
+    gitPick(commit, branches, options)
   })
-  .parse(process.argv);
+  .parse(process.argv)
 
 if (!program.args.length) {
-  program.help();
+  program.help()
 }

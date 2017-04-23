@@ -7,8 +7,9 @@
     "git-pick": "bin/cli.js"
   },
   "scripts": {
-    "lint": "eslint --format=node_modules/eslint-formatter-pretty .",
-    "test": "npm run lint && jest",
+    "lint": "standard --verbose | snazzy",
+    "test": "npm run lint && npm run test:unit",
+    "test:unit": "jest",
     "prepush": "npm test"
   },
   "repository": {
@@ -27,12 +28,10 @@
   },
   "homepage": "https://github.com/danielbayerlein/git-pick#readme",
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb-base": "^11.1.3",
-    "eslint-formatter-pretty": "^1.1.0",
-    "eslint-plugin-import": "^2.2.0",
     "husky": "^0.13.3",
-    "jest": "^19.0.1"
+    "jest": "^19.0.1",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2"
   },
   "dependencies": {
     "commander": "^2.9.0",
@@ -43,7 +42,14 @@
   "jest": {
     "bail": true,
     "collectCoverage": true,
-    "collectCoverageFrom": ["**/{lib,bin}/*.js"]
+    "collectCoverageFrom": [
+      "**/{lib,bin}/*.js"
+    ]
+  },
+  "standard": {
+    "env": {
+      "jest": true
+    }
   },
   "publishConfig": {
     "access": "public"
