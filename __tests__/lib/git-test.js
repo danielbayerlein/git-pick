@@ -146,17 +146,17 @@ describe('git.js', () => {
     })
   })
 
-  describe('function push()', () => {
-    test('calls shell.exec with "git pull"', () => {
-      git.pull()
-      expect(shell.exec).toBeCalledWith('git pull')
+  describe('function pushUpstream()', () => {
+    test('calls shell.exec with "git push -u" with the given branch', () => {
+      git.pushUpstream('test')
+      expect(shell.exec).toBeCalledWith('git push -u origin test')
     })
   })
 
-  describe('function setUpstreamBranch', () => {
-    test('calls sell.exec with "git branch -u origin/" and the given branch', () => {
-      git.setUpstreamBranch('test')
-      expect(shell.exec).toBeCalledWith('git branch -u origin/test')
+  describe('function pull()', () => {
+    test('calls shell.exec with "git pull"', () => {
+      git.pull()
+      expect(shell.exec).toBeCalledWith('git pull')
     })
   })
 })
