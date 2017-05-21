@@ -147,7 +147,7 @@ describe('git.js', () => {
   })
 
   describe('function pushUpstream()', () => {
-    test('calls shell.exec with "git push -u" with the given branch', () => {
+    test('calls shell.exec with "git push -u origin" with the given branch', () => {
       git.pushUpstream('test')
       expect(shell.exec).toBeCalledWith('git push -u origin test')
     })
