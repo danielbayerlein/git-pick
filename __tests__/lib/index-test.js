@@ -10,8 +10,8 @@ describe('index.js', () => {
     git.checkout = jest.fn()
     git.fetch = jest.fn()
     git.push = jest.fn()
+    git.pushUpstream = jest.fn()
     git.pull = jest.fn()
-    git.setUpstreamBranch = jest.fn()
 
     git.getRootDirectoryPath = jest.fn(() => '/Users/Daniel/Projects/git-pick')
     git.getCurrentBranch = jest.fn(() => 'master')
@@ -198,8 +198,8 @@ describe('index.js', () => {
       expect(git.checkout).toBeCalledWith('branch1_1234abc', true)
     })
 
-    test('calls git.setUpstreamBranch with "branch1_1234abc"', () => {
-      expect(git.setUpstreamBranch).toBeCalledWith('branch1_1234abc')
+    test('calls git.pushUpstream with "branch1_1234abc"', () => {
+      expect(git.pushUpstream).toBeCalledWith('branch1_1234abc')
     })
 
     test('calls shell.succeed with "[branch1_1234abc] Commit successfully merged"', () => {
