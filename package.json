@@ -28,13 +28,13 @@
   },
   "homepage": "https://github.com/danielbayerlein/git-pick#readme",
   "devDependencies": {
-    "husky": "^0.14.1",
+    "husky": "^0.14.2",
     "jest": "^20.0.4",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2"
   },
   "dependencies": {
-    "commander": "^2.10.0",
+    "commander": "^2.11.0",
     "log-symbols": "^1.0.2",
     "shelljs": "^0.7.8",
     "update-notifier": "^2.2.0"
