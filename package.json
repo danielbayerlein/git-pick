@@ -34,7 +34,7 @@
     "standard": "^10.0.3"
   },
   "dependencies": {
-    "commander": "^2.11.0",
+    "commander": "^2.12.1",
     "log-symbols": "^2.1.0",
     "shelljs": "^0.7.8",
     "update-notifier": "^2.3.0"
