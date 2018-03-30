@@ -37,7 +37,7 @@
     "commander": "^2.15.1",
     "log-symbols": "^2.2.0",
     "shelljs": "^0.8.1",
-    "update-notifier": "^2.3.0"
+    "update-notifier": "^2.4.0"
   },
   "jest": {
     "bail": true,
