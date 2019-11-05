@@ -1,10 +1,10 @@
 # git-pick
 
 [![npm version](https://badge.fury.io/js/%40danielbayerlein%2Fgit-pick.svg)](https://badge.fury.io/js/%40danielbayerlein%2Fgit-pick)
-[![Build Status](https://travis-ci.org/danielbayerlein/git-pick.svg?branch=master)](https://travis-ci.org/danielbayerlein/git-pick)
-[![Coverage Status](https://codecov.io/gh/danielbayerlein/git-pick/branch/master/graph/badge.svg)](https://codecov.io/gh/danielbayerlein/git-pick)
+[![Actions Status](https://github.com/danielbayerlein/git-pick/workflows/CI/badge.svg)](https://github.com/danielbayerlein/git-pick/actions)
+[![codecov](https://codecov.io/gh/danielbayerlein/git-pick/branch/master/graph/badge.svg)](https://codecov.io/gh/danielbayerlein/git-pick)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![Greenkeeper badge](https://badges.greenkeeper.io/danielbayerlein/git-pick.svg)](https://greenkeeper.io/)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=danielbayerlein/git-pick)](https://dependabot.com)
 
 `git cherry-pick <commit>` to multiple branches.
 With `git-pick` you can cherry-pick a commit to multiple branches.
