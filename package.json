@@ -30,7 +30,7 @@
     "husky": "^4.2.3",
     "jest": "^26.0.0",
     "snazzy": "^8.0.0",
-    "standard": "^14.3.1"
+    "standard": "^15.0.0"
   },
   "dependencies": {
     "commander": "^6.0.0",
