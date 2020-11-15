@@ -22,7 +22,7 @@ describe('cli.js', () => {
     program.arguments = jest.fn().mockReturnThis()
     program.option = jest.fn().mockReturnThis()
     program.action = jest.fn().mockImplementation(function action (cb) {
-      // eslint-disable-next-line standard/no-callback-literal
+      // eslint-disable-next-line node/no-callback-literal
       cb('1234abc', ['branch1', 'branch2'], { newBranch: true })
       return this
     })
