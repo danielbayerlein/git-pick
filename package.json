@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "commander": "^6.0.0",
-    "log-symbols": "^4.0.0",
+    "log-symbols": "^5.0.0",
     "shelljs": "^0.8.3",
     "update-notifier": "^5.0.0"
   },
